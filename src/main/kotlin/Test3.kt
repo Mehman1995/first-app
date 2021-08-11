@@ -1,33 +1,21 @@
 fun main() {
 
-
-    val itemCount = 11
-    val itemCont = itemCount * 110
-    val itemPrice = 100
-    val discount = 100
-    val discountStart = 10000
-    val discont = 100 * 5
-
-
-    var totalPrice = itemPrice * itemCount
-    var totalPric = itemPrice * itemCont
-
-    if (totalPrice >= discountStart) {
-        totalPrice -= discount
-        println("сумма покупки 11 вещей + скидка 100 руб = $totalPrice руб")
+    val sum = 11_000
+    val isMeloman = true
+    val user = "Вася"
+    val discount = 5
+    val discountForMeloman = 1
+    val standartDiscount = 100
+    var purchase = if (sum <= 1000) {
+        sum
+    } else if (sum >= 1001 && sum <= 10_000) {
+        sum - standartDiscount
     } else {
-        println("если сумма покупки свыше 10_001 руб то применяется скидка 5%")
-        println()
-        if (totalPric >= 10_000) {
-            totalPric /= discont
-            println("Ваша сумма со скидкой 5% состовляет = $totalPric руб")
-            println()
-            println("А если будете постоянным пользователем нашего магазина то приобретете скидку \n" +
-                    "1% и тогда ваш товар будет стоить")
-            totalPric /= discont / 242 * 1
-            println("$totalPric руб")
-
-        }
-
+        sum - (sum * discount / 100)
     }
+
+    if (isMeloman) {
+        purchase -= (purchase * discountForMeloman / 100)
+    }
+    println("$user закупился на $purchase")
 }
