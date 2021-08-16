@@ -8,7 +8,7 @@ fun main() {
     val standartDiscount = 100
     var purchase = if (sum <= 1000) {
         sum
-    } else if (sum >= 1001 && sum <= 10_000) {
+    } else if (sum <= 10_000) {
         sum - standartDiscount
     } else {
         sum - (sum * discount / 100)
